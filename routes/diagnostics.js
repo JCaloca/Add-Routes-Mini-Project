@@ -11,20 +11,19 @@ diagnostics.get("/", (req, res) => {
 });
 
 // POST Route for a error logging
-const errorTip = errors.tip;
-const errorTopic = errors.topic;
-const errorUsername = errors.username;
+// const errorTip = errors.tip;
+// const errorTopic = errors.topic;
+// const errorUsername = errors.username;
 
 diagnostics.post("/", (req, res) => {
   // TODO: Logic for appending data to the db/diagnostics.json file
-  const { time, errorTip, errorTopic, errorUsername } = req.body;
+  // const { time, errorTip, errorTopic, errorUsername } = req.body;
+  const { time, errors } = req.body;
 
-  if (time && errorTip && errorTopic && errorUsername) {
+  if (time && errors) {
     const newDiagnostics = {
       time,
-      errorTip,
-      errorTopic,
-      errorUsername,
+      errors,
       error_id: uuidv4(),
     };
 
